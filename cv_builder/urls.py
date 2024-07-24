@@ -26,7 +26,7 @@ from home.views import *
 urlpatterns = [
     path('home/', home, name="recipes"),      # Home page
     path("admin/", admin.site.urls),          # Admin interface
-    path('login/', login_page, name='login_page'),    # Login page
+    path('', login_page, name='login_page'),    # Login page
     path('register/', register_page, name='register'),  # Registration page
     path('logout/',user_lgot,name='logout'),
     path('home2', home2, name = 'home'), 

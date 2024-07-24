@@ -12,7 +12,7 @@
 		} 
 
 		.form-container { 
-			width: 60%; 
+			width: 90%; 
 			margin: 0 auto; 
 			padding: 20px; 
 			border: 1px solid #ccc; 
@@ -69,20 +69,23 @@
 		} 
 
 		.btn1 { 
-			margin-left: 43%; 
+			
 			padding: 15px 15px; 
 			font-size: 15px; 
 			font-weight: bold; 
 			background-color: rgb(35, 144, 208); 
 			border-radius: 10px; 
 		} 
-
+        label{
+            display: flex;
+			text-align: left;
+        }
 		/* You can add more styles as needed */ 
 	</style> 
 </head> 
 
 <body> 
-	<h1 style="text-align: center; color:green; font-size:40px; ">CV Builder</h1> 
+	<h1 style="text-align: center; color:rgb(3, 4, 3); font-size:40px; ">CV Builder</h1> 
 
 	<form action="{% url 'resume' %}" method="post"> 
 		{% csrf_token %} 
@@ -106,7 +109,7 @@
 			</div> 
 			<div class="form-group"> 
 				<label for="email">Email:</label> 
-				<input type="text" id="email" name="email"> 
+				<input type="text" id="email" name="email" value="{{user.email}}"> 
 			</div> 
 			<div class="form-group"> 
 				<label for="phone">Phone:</label> 

@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import *
 
+
 # Define a view function for the home page
+@login_required(login_url='/logout/')
 def home(request):
 	return render(request, 'home.html')
 
@@ -39,11 +41,16 @@ def login_page(request):
 	# Render the login page template (GET request)
 	return render(request, 'login.html')
 
+# Define a view function for the home page
+
+
+
 def user_lgot(request):
    logout(request)
    return login_page(request)
 
 # Define a view function for the registration page
+@login_required(login_url='/logout/')
 def register_page(request):
 	# Check if the HTTP request method is POST (form submission)
 	if request.method == 'POST':
