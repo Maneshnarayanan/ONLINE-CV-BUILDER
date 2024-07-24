@@ -14,11 +14,12 @@
             .container {
                 text-align: center;
                 margin: 100px auto;
-                max-width: 500px;
+                max-width: 800px;
                 padding: 20px;
                 background-color: #fff;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                max-height: 1000px;
             }
 
             h1 {
@@ -29,13 +30,67 @@
             img {
                 width: 60%;
             }
+
+            .btn1 {
+                border: 0px solid #fff;
+                padding: 1em 2em;
+                min-width: 200px;
+                min-height: 50px;
+                background: none;
+                position: relative;
+                cursor: pointer;
+                box-shadow: inset -2px 1px 11px rgba(0, 0, 0, 0.5);
+            }
+
+            a {
+                color: #160e0e;
+                text-decoration: none;
+                font-size: large;
+                text-transform: uppercase;
+                font-family: "Merienda", cursive;
+                animation-name: glow;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            
+@keyframes glow{
+  from{text-shadow:0px 0px 5px #fff,0px 0px 5px #614ad3;}
+  to{text-shadow:0px 0px 20px #fff,0px 0px 20px #614ad3;}
+}
+
+            svg {
+                position: absolute;
+                inset: 0;
+                fill: none;
+                stroke: #fff;
+                stroke-width: 5px;
+                stroke-dasharray: 33 297;
+                stroke-dashoffset: 50;
+                transition: all 0.5s linear;
+            }
+
+            .btn1:hover {
+                background-color: #04b7e9;
+                box-shadow: none;
+            }
+
+            .btn1:hover svg {
+                stroke-width: 3px;
+                stroke-dashoffset: -500;
+            }
+
+            .btn1:active {
+                transform: scale(1.001);
+                background-color: #02a7d4;
+            }
         </style>
     </head>
     <body>
         <!-- nav bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">CV Builder</a>
+                <a class="navbar-brand" href="/home/">CV Builder</a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -50,13 +105,13 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/home/">Home</a>
                         </li>
                     </ul>
                     <div class="d-flex">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <p class="nav-link">Hello, {{user.first_name}}</p>
+                                <p class="nav-link">Hello, {{ user.first_name}} </p>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout/">Logout</a>
@@ -67,12 +122,16 @@
             </div>
         </nav>
         <div class="container">
-            <!-- Page heading -->
-            <h1>Welcome {{user.first_name}}</h1>
-
+            {% block cv %}
             <!-- Animated GIF -->
             <!-- Use "welcome.gif" as the source for the GIF -->
             <img src="https://i.ibb.co/RNB6jpM/welcome.gif" alt="Welcome Cartoon" />
+
+            <div>
+                <a class="btn1" href="/home2">Generate Your CV</a>
+            </div>
+
+            {% endblock %}
         </div>
     </body>
 </html>
