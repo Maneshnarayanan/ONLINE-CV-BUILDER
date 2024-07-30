@@ -30,7 +30,8 @@ urlpatterns = [
     path('register/', register_page, name='register'),  # Registration page
     path('logout/',user_lgot,name='logout'),
     path('home2', home2, name = 'home'), 
-    path('resume/', gen_resume, name = 'resume'), 
+    path('resume/', gen_resume, name = 'resume'),
+     path('editresume/', edit_resume, name = 'edit_resume'),  
     path('profile/', profile_view, name='profile_view'),
     
 ]

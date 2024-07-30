@@ -14,6 +14,17 @@ def profile_view(request):
         return redirect('resume')
     return render(request, 'profile_view.html', {'profile': user_profile})
 
+@login_required
+def edit_resume(request):
+      
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+       
+        return redirect('resume')
+    return render(request, 'edit_resume.html', {'profile': user_profile})
+
+
 def gen_resume(request): 
 	if request.method == 'POST': 
 		name = request.POST.get('name', '') 

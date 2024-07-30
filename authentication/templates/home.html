@@ -224,6 +224,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/profile/">View My CV</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/editresume/">Edit CV</a>
+                            </li>
                         </ul>
                         <div class="d-flex">
                             <ul class="navbar-nav me-auto">
@@ -250,7 +253,7 @@
             /></center>
 
             <div class="wrapper">
-                <a class="cta" href="/home2">
+                <a class="cta" href="{% url 'edit_resume' %}">
                     <span>GENERATE YOUR CV</span>
                     <span>
                         <svg

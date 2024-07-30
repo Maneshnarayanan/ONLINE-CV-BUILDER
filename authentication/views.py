@@ -24,7 +24,7 @@ def login_page(request):
 		if not User.objects.filter(username=username).exists():
 			# Display an error message if the username does not exist
 			messages.error(request, 'Invalid Username')
-			return redirect('')
+			return redirect('login_page')
 		
 		# Authenticate the user with the provided username and password
 		user = authenticate(username=username, password=password)
@@ -32,7 +32,7 @@ def login_page(request):
 		if user is None:
 			# Display an error message if authentication fails (invalid password)
 			messages.error(request, "Invalid Password")
-			return redirect('')
+			return redirect('login_page')
 		else:
 			# Log in the user and redirect to the home page upon successful login
 			login(request, user)
